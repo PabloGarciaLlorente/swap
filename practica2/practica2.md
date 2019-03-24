@@ -54,4 +54,6 @@ Para establecer una tarea en cron, el cual es un administrador procesos en segun
 
 Para añadir la tarea indicada en el enunciado del problema debemos modificar el archivo _/etc/crontab_ de la siguiente manera
 
-![](TareaProgramada.png.PNG)
+![Fichero crontab modificado](TareaProgramada.png.PNG)
+
+La última línea del fichero mostrado en la imagen es la que hemos modificado para que se ejecute la función indicada
