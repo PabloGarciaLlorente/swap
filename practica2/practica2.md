@@ -27,4 +27,4 @@ Para probar el funcionamiento de la copia de archivos por ssh vamos a crear un a
 Ejecución de la orden, al no indicar el directorio al cual se mandará el archivo, se creará en el directorio /home/usuario del usuario que se ha utilizado para conectar el ssh:
 
 ![Creación de un archivo en una máquina remota mediante ssh](creaciondearchivossh(maq1).png.PNG)
-##### Creación de un archivo en una máquina remota mediante ssh
+            _Creación de un archivo en una máquina remota mediante ssh_
