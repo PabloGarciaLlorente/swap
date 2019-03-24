@@ -50,4 +50,8 @@ El archivo tar.tgz se ha creado en el directorio indicado, en este caso el direc
 
 ### 4. Establecer una tarea en cron que se ejecute cada hora para mantener actualizado el contenido del directorio /var/www entre las dos máquinas
 
+Para establecer una tarea en cron, el cual es un administrador procesos en segundo plano que ejecuta procesos, se debe de modificar el fichero crontab. Cada minuto se revisa la tabla del fichero _/etc/crontab_ en búsqueda de tareas que se deban ejecutar. Podemos agregar nuevas tareas a cron para automatizar algunos procesos.
+
+Para añadir la tarea indicada en el enunciado del problema debemos modificar el archivo _/etc/crontab_ de la siguiente manera
+
 ![](TareaProgramada.png.PNG)
