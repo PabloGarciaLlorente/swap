@@ -50,6 +50,12 @@ Para conectar dos equipos mediante ssh sin que requiera la contraseña se suele 
       
       $ssh-keygen -b 4096 -t rsa
 
+Para hacer la copia de la clave existe se utiliza el comando ssh-copy-id, que viene integrado con el comando ssh. Esto nos permitirá copiar la clave a la máquina 1, a la cual querremos acceder desde la máquina 2:
+
+      $ssh-copy-id 192.168.1.100
+      
+Con esto ya podremos acceder a la máquina 1 sin utilizar contraseña como podemos ver en la imagen siguiente:
+
 ![Acceso mediante ssh sin utilizar contraseña](sshSinContraseña.png.PNG)
 
 ### 4. Establecer una tarea en cron que se ejecute cada hora para mantener actualizado el contenido del directorio /var/www entre las dos máquinas
