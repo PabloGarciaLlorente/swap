@@ -6,7 +6,7 @@ Pablo García Llorente
 ## Preparación de las herramientas
 Para poder abordar la práticas debemos de realizar la instalación de la herramienta Rsync sobre las máquinas virtuales creadas a lo largo de la práctica previa, para instalar Rsync simplemente abrimos la terminal y escribimos:
 
-      *$sudo apt-get install rsync* 
+      $sudo apt-get install rsync 
 
 Una vez hayamos seguido todos los pasos e instalado todos los paquetes necesario, podemos comenzar a realizar la práctica.  
 
@@ -22,4 +22,4 @@ Una vez hayamos seguido todos los pasos e instalado todos los paquetes necesario
 
 Para probar el funcionamiento de la copia de archivos por ssh vamos a crear un archivo directamente en otro ordenador, que en nuestro caso sería otra máquina virtual, conectado mediante ssh, más específicamente, indicaremos al comando tar que queremos que use stdout como destino y mandar con una pipe la salida al ssh. Éste debe coger la salida del tar y escribirla en un fichero. La orden sería:
 
-    *tar czf - | ssh 192.168.1.101 'cat > ~/tar.tgz'*
+    tar czf - | ssh 192.168.1.101 'cat > ~/tar.tgz'
