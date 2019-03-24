@@ -27,12 +27,12 @@ Para probar el funcionamiento de la copia de archivos por ssh vamos a crear un a
 Ejecución de la orden, al no indicar el directorio al cual se mandará el archivo, se creará en el directorio /home/usuario del usuario que se ha utilizado para conectar el ssh, esto se ejecuta en la máquina 1 y el archivo se crea en la máquina 2:
 
 ![Creación de un archivo en una máquina remota mediante ssh](creaciondearchivossh(maq1).png.PNG)                               
-_Creación de un archivo en una máquina remota mediante ssh_
+_Creación de un archivo en una máquina remota mediante ssh._
 
 Y aquí podemos ver el resultado en la máquina 2:
 
 ![Comprobación de la creación de un archivo en una máquina remota mediante ssh](comprobacioncreaciondearchivossh(maq2).png.PNG)        
-_Comprobación de la creación de un archivo en una máquina remota mediante ssh_
+_Comprobación de la creación de un archivo en una máquina remota mediante ssh._
 
 El archivo tar.tgz se ha creado en el directorio indicado, en este caso el directorio por defecto ya que no se le indicó ningún escritorio, correctamente.
 
@@ -46,14 +46,18 @@ El archivo tar.tgz se ha creado en el directorio indicado, en este caso el direc
 
 ### 3. Configuración de ssh para acceder sin que solicite contraseña
 
-![](sshSinContraseña.png.PNG)
+Para conectar dos equipos mediante ssh sin que requiera la contraseña se suele utilizar autenticación con un par de claves pública-privada. Mediante ssh-keygen podemos generar la clave, con la opción -t para el tipo de clave. Así, en la máquina 2 ejecutaremos:
+      
+      $ssh-keygen -b 4096 -t rsa
+
+![Acceso mediante ssh sin utilizar contraseña](sshSinContraseña.png.PNG)
 
 ### 4. Establecer una tarea en cron que se ejecute cada hora para mantener actualizado el contenido del directorio /var/www entre las dos máquinas
 
 Para establecer una tarea en cron, el cual es un administrador procesos en segundo plano que ejecuta procesos, se debe de modificar el fichero crontab. Cada minuto se revisa la tabla del fichero _/etc/crontab_ en búsqueda de tareas que se deban ejecutar. Podemos agregar nuevas tareas a cron para automatizar algunos procesos.
 
-Para añadir la tarea indicada en el enunciado del problema debemos modificar el archivo _/etc/crontab_ de la siguiente manera
+Para añadir la tarea indicada en el enunciado del problema debemos modificar el archivo _/etc/crontab_ de la siguiente manera.
 
 ![Fichero crontab modificado](TareaProgramada.png.PNG)
 
-La última línea del fichero mostrado en la imagen es la que hemos modificado para que se ejecute la función indicada
+La última línea del fichero mostrado en la imagen es la que hemos modificado para que se ejecute la función indicada.
