@@ -33,3 +33,13 @@ Y aquí podemos ver el resultado en la máquina 2:
 
 ![Comprobación de la creación de un archivo en una máquina remota mediante ssh](comprobacioncreaciondearchivossh(maq2).png.PNG)        
 _Comprobación de la creación de un archivo en una máquina remota mediante ssh_
+
+El archivo tar.tgz se ha creado en el directorio indicado, en este caso el directorio por defecto ya que no se le indicó ningún escritorio, correctamente.
+
+### 2. Clonado de una carpeta entre las dos máquinas
+
+
+### 3. Configuración de ssh para acceder sin que solicite contraseña
+
+
+### 4. Establecer una tarea en cron que se ejecute cada hora para mantener actualizado el contenido del directorio /var/www entre las dos máquinas
