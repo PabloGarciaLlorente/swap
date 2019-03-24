@@ -4,7 +4,11 @@ Eugenio Alcántara García
 Pablo García Llorente
 
 ## Preparación de las herramientas
-Para poder abordar la práticas debemos de realizar la instalación de la herramienta Rsync sobre las máquinas virtuales creadas a lo largo de la práctica previa, para instalar Rsync simplemente abrimos la terminal y escribimos *$sudo apt-get install rsync*. Una vez hayamos seguido todos los pasos e instalado todos los paquetes necesario, podemos comenzar a realizar la práctica.  
+Para poder abordar la práticas debemos de realizar la instalación de la herramienta Rsync sobre las máquinas virtuales creadas a lo largo de la práctica previa, para instalar Rsync simplemente abrimos la terminal y escribimos:
+
+      *$sudo apt-get install rsync* 
+
+Una vez hayamos seguido todos los pasos e instalado todos los paquetes necesario, podemos comenzar a realizar la práctica.  
 
 ## Cuestiones a resolver
 
