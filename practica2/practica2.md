@@ -31,4 +31,5 @@ _Creación de un archivo en una máquina remota mediante ssh_
 
 Y aquí podemos ver el resultado en la máquina 2:
 
-![Comprobación de la creación de un archivo en una máquina remota mediante ssh](comprobacioncreaciondearchivossh(maq2).png.PNG)     
+![Comprobación de la creación de un archivo en una máquina remota mediante ssh](comprobacioncreaciondearchivossh(maq2).png.PNG)        
+_Comprobación de la creación de un archivo en una máquina remota mediante ssh_
