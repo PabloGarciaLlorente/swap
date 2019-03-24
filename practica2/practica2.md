@@ -38,8 +38,16 @@ El archivo tar.tgz se ha creado en el directorio indicado, en este caso el direc
 
 ### 2. Clonado de una carpeta entre las dos máquinas
 
+![](ClonarCarpetaSrync.png.PNG)
+
+![](Comprobacionclonacion(maq1).png.PNG)
+
+![](Comprobacionclonacion(maq2).png.PNG)
 
 ### 3. Configuración de ssh para acceder sin que solicite contraseña
 
+![](sshSinContraseña.png.PNG)
 
 ### 4. Establecer una tarea en cron que se ejecute cada hora para mantener actualizado el contenido del directorio /var/www entre las dos máquinas
+
+![](TareaProgramada.png.PNG)
