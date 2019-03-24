@@ -24,7 +24,11 @@ Para probar el funcionamiento de la copia de archivos por ssh vamos a crear un a
 
     $tar czf - | ssh 192.168.1.101 'cat > ~/tar.tgz'
 
-Ejecución de la orden, al no indicar el directorio al cual se mandará el archivo, se creará en el directorio /home/usuario del usuario que se ha utilizado para conectar el ssh:
+Ejecución de la orden, al no indicar el directorio al cual se mandará el archivo, se creará en el directorio /home/usuario del usuario que se ha utilizado para conectar el ssh, esto se ejecuta en la máquina 1 y el archivo se crea en la máquina 2:
 
 ![Creación de un archivo en una máquina remota mediante ssh](creaciondearchivossh(maq1).png.PNG)                               
-                                                 _Creación de un archivo en una máquina remota mediante ssh_
+_Creación de un archivo en una máquina remota mediante ssh_
+
+Y aquí podemos ver el resultado en la máquina 2:
+
+![Comprobación de la creación de un archivo en una máquina remota mediante ssh](comprobacioncreaciondearchivossh(maq2).png.PNG)     
