@@ -17,4 +17,5 @@ Para poder abordar la práticas debemos de realizar la instalación de la herram
 ### 1.Probar el funcionamiento de la copia de archivos por ssh
 
 Para probar el funcionamiento de la copia de archivos por ssh vamos a crear un archivo directamente en otro ordenador, que en nuestro caso sería otra máquina virtual, conectado mediante ssh, más específicamente, indicaremos al comando tar que queremos que use stdout como destino y mandar con una pipe la salida al ssh. Éste debe coger la salida del tar y escribirla en un fichero. La orden sería:
+
     *tar czf - | ssh 192.168.1.101 'cat > ~/tar.tgz'*
