@@ -18,6 +18,7 @@ Una vez hayamos seguido todos los pasos e instalado todos los paquetes necesario
 3. #### Configuración de ssh para acceder sin que solicite contraseña
 4. #### Establecer una tarea en cron que se ejecute cada hora para mantener actualizado el contenido del directorio /var/www entre las dos máquinas
 
+
 ### 1.Probar el funcionamiento de la copia de archivos por ssh
 
 Para probar el funcionamiento de la copia de archivos por ssh vamos a crear un archivo directamente en otro ordenador, que en nuestro caso sería otra máquina virtual, conectado mediante ssh, más específicamente, indicaremos al comando tar que queremos que use stdout como destino y mandar con una pipe la salida al ssh. Éste debe coger la salida del tar y escribirla en un fichero. La orden sería:
@@ -36,14 +37,34 @@ _Comprobación de la creación de un archivo en una máquina remota mediante ssh
 
 El archivo tar.tgz se ha creado en el directorio indicado, en este caso el directorio por defecto ya que no se le indicó ningún escritorio, correctamente.
 
+
 ### 2. Clonado de una carpeta entre las dos máquinas
 
+Para trabajar podemos optar por hacerlo como root o como usuario sin privilegios de root. En principio, podremos realizar todas las configuraciones como usuario sin privilegios por lo que se recomienda usar esta cuenta. En este caso se requiere que el usuario sea el dueño de la carpeta donde residen los archivos que hay en el espacio web (en ambas máquinas):
+
+      $sudo chown pablo:pablo –R /var/www
+      
+Para probar el funcionamiento del rsync vamos a clonar una carpeta cualquiera. Por ejemplo, para clonar la carpeta con el contenido del servidor web principal, en la máquina 2 ejecutaremos:
+
+      $rsync -avz -e ssh 192.168.1.100:/var/www/ /var/www/
+      
+Ejecución de la orden previa:
+
 ![](ClonarCarpetaSrync.png.PNG)
+      
+Nos pedirá la clave del usuario en la máquina 1, tras introducirla correctamente, podremos comprobar que el directorio /var/www queda clonado de forma idéntica en ambas máquinas:
+
+      ls -la /var/www
+      
+Comprovación de la correcta clonación en la máquina 1:
 
 ![](Comprobacionclonacion(maq1).png.PNG)
 
-![](Comprobacionclonacion(maq2).png.PNG)
+Comprovación de la correcta clonación en la máquina 2:
 
+![](Comprobacionclonacion(maq2).png.PNG)
+      
+      
 ### 3. Configuración de ssh para acceder sin que solicite contraseña
 
 Para conectar dos equipos mediante ssh sin que requiera la contraseña se suele utilizar autenticación con un par de claves pública-privada. Mediante ssh-keygen podemos generar la clave, con la opción -t para el tipo de clave. Así, en la máquina 2 ejecutaremos:
@@ -57,6 +78,7 @@ Para hacer la copia de la clave existe se utiliza el comando ssh-copy-id, que vi
 Con esto ya podremos acceder a la máquina 1 sin utilizar contraseña como podemos ver en la imagen siguiente:
 
 ![Acceso mediante ssh sin utilizar contraseña](sshSinContraseña.png.PNG)
+
 
 ### 4. Establecer una tarea en cron que se ejecute cada hora para mantener actualizado el contenido del directorio /var/www entre las dos máquinas
 
