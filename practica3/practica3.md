@@ -61,6 +61,8 @@ server{
 
 ![Balanceo de carga mediante NginX](./imagenes/nginx_servidor_2.png)
 
+Desde una cuarta máquina virtual hemos pedido al balanceador que nos muestre la página index.html. Puesto que nginx usa un algoritmo Round-Robin, este primero muestra el index.html del servidor 1. Si seguidamente se lo volvemos a pedir al balanceador, este mostrará el index.html del servidor 2. 
+
 
 ### 2. Configurar una máquina e instalar el haproxy como balanceador de carga
 
@@ -76,6 +78,7 @@ server{
 
 
 ![Balanceo de carga mediante NginX](./imagenes/nginx.PNG)
+Mediante la herramienta top (puesta en el servidor 1, servidor 2 y balanceador) podemos ver el benchmark lanzado a través de la cuarta máquina virtual. 
 
 ![Balanceo de carga mediante NginX con los pesos modificados](./imagenes/nginx_pesos_modificados.PNG)
 
