@@ -9,23 +9,23 @@ En esta práctica debemos crear una nueva máquina que funcionará como balancea
 
 
       $sudo apt-get update && sudo apt-get dist-upgrade && sudo apt-get autoremove
-      
       $sudo apt-get install nginx
-      
       $sudo systemctl start nginx
 
- 
+
+A continuación hemos hemos instalado HaProxy en la misma máquina utilizando el siguiente comando:
+      
+      $sudo apt-get install haproxy
+      
 
 ## Cuestiones a resolver
 
 ### Hay que llevar a cabo las siguientes tareas:
-1. #### Probar el funcionamiento de la copia de archivos por ssh
-2. #### Clonado de una carpeta entre las dos máquinas
-3. #### Configuración de ssh para acceder sin que solicite contraseña
-4. #### Establecer una tarea en cron que se ejecute cada hora para mantener actualizado el contenido del directorio /var/www entre las dos máquinas
+1. #### Configurar una máquina e instalar el nginx como balanceador de carga
+2. #### Configurar una máquina e instalar el haproxy como balanceador de carga
+3. #### Someter a la granja web a una alta carga, generada con la herramienta Apache Benchmark, teniendo primero nginx y después haproxy.
 
-
-### 1.Probar el funcionamiento de la copia de archivos por ssh
+### 1. Configurar una máquina e instalar el NginX como balanceador de carga
 
 Para probar el funcionamiento de la copia de archivos por ssh vamos a crear un archivo directamente en otro ordenador, que en nuestro caso sería otra máquina virtual, conectado mediante ssh, más específicamente, indicaremos al comando tar que queremos que use stdout como destino y mandar con una pipe la salida al ssh. Éste debe coger la salida del tar y escribirla en un fichero. La orden sería:
 
@@ -44,7 +44,7 @@ _Comprobación de la creación de un archivo en una máquina remota mediante ssh
 El archivo tar.tgz se ha creado en el directorio indicado, en este caso el directorio por defecto ya que no se le indicó ningún escritorio, correctamente.
 
 
-### 2. Clonado de una carpeta entre las dos máquinas
+### 2. Configurar una máquina e instalar el haproxy como balanceador de carga
 
 Para trabajar podemos optar por hacerlo como root o como usuario sin privilegios de root. En principio, podremos realizar todas las configuraciones como usuario sin privilegios por lo que se recomienda usar esta cuenta. En este caso se requiere que el usuario sea el dueño de la carpeta donde residen los archivos que hay en el espacio web (en ambas máquinas):
 
@@ -71,7 +71,7 @@ Comprovación de la correcta clonación en la máquina 2:
 ![](Comprobacionclonacion(maq2).png.PNG)
       
       
-### 3. Configuración de ssh para acceder sin que solicite contraseña
+### 3. Someter a la granja web a una alta carga, generada con la herramienta Apache Benchmark, teniendo primero nginx y después haproxy.
 
 Para conectar dos equipos mediante ssh sin que requiera la contraseña se suele utilizar autenticación con un par de claves pública-privada. Mediante ssh-keygen podemos generar la clave, con la opción -t para el tipo de clave. Así, en la máquina 2 ejecutaremos:
       
@@ -86,12 +86,3 @@ Con esto ya podremos acceder a la máquina 1 sin utilizar contraseña como podem
 ![Acceso mediante ssh sin utilizar contraseña](sshSinContraseña.png.PNG)
 
 
-### 4. Establecer una tarea en cron que se ejecute cada hora para mantener actualizado el contenido del directorio /var/www entre las dos máquinas
-
-Para establecer una tarea en cron, el cual es un administrador procesos en segundo plano que ejecuta procesos, se debe de modificar el fichero crontab. Cada minuto se revisa la tabla del fichero _/etc/crontab_ en búsqueda de tareas que se deban ejecutar. Podemos agregar nuevas tareas a cron para automatizar algunos procesos.
-
-Para añadir la tarea indicada en el enunciado del problema debemos modificar el archivo _/etc/crontab_ de la siguiente manera.
-
-![Fichero crontab modificado](TareaProgramada.png.PNG)
-
-La última línea del fichero mostrado en la imagen es la que hemos modificado para que se ejecute la función indicada.
