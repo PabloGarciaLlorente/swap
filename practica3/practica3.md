@@ -101,11 +101,9 @@ En la primera ejecución de la instrucción curl el servidor al cual el balancea
 
 ![Balanceo de carga mediante haproxy](./imagenes/haproxy_servidor_1.png)
 
-
 Primera ejecución de la instrucción curl, respondida por el servidor 1, dirección 192.168.1.100
 
 ![Balanceo de carga mediante HaProxy](./imagenes/haproxy_servidor_2.png)
-
 
 Segunda ejecución de la instrucción curl, respondida por el servidor 2, dirección 192.168.1.101
 
