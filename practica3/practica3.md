@@ -66,13 +66,46 @@ Desde una cuarta máquina virtual hemos pedido al balanceador que nos muestre la
 
 ### 2. Configurar una máquina e instalar el haproxy como balanceador de carga
 
-![Balanceo de carga mediante haproxy](./imagenes/haproxy_servidor_1.png)
 
+global
+
+      daemon
+      maxconn 256
+defaults
+
+      mode http
+      contimeout 4000
+      clitimeout 42000
+      srvtimeout 43000
+frontend http-in
+
+      bind *:80
+      default_backend servers
+backend servers
+
+      server m1 192.168.1.100:80 maxconn 32
+      server m2 192.168.1.101:80 maxconn 32
+      
+Vemos que nuestro balanceador espera conexiones entrantes por el puerto 80 para redirigirlas a las dos máquinas servidoras (en las que tenemos los Apache instalados y escuchando en el puerto 80).
+
+Una vez salvada la configuración en el fichero, lanzamos el servicio haproxy mediante el comando:
+
+      $sudo /usr/sbin/haproxy -f /etc/haproxy/haproxy.cfg
+      
+A continuación comprobamos el funcionamiento del balanceador mediante el uso de curl desde una cuarta máquina hacia el balanceador:
+
+      $curl http://192.168.1.102
+      $curl http://192.168.1.102
+      
+En la primera ejecución de la instrucción curl el servidor al cual el balanceador envía la petición es el servidor 1 mientras que la segunda petición es enviada al servidor 2 como podemos ver en las imágenes a continuación:
+
+![Balanceo de carga mediante haproxy](./imagenes/haproxy_servidor_1.png)
+Primera ejecución de la instrucción curl, respondida por el servidor 1, dirección 192.168.1.100
 
 ![Balanceo de carga mediante HaProxy](./imagenes/haproxy_servidor_2.png)
+Segunda ejecución de la instrucción curl, respondida por el servidor 2, dirección 192.168.1.101
 
-      
-      
+
 ### 3. Someter a la granja web a una alta carga, generada con la herramienta Apache Benchmark, teniendo primero nginx y después haproxy.
 
 
