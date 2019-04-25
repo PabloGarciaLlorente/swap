@@ -26,7 +26,8 @@ A continuación hemos hemos instalado HaProxy en la misma máquina utilizando el
 3. #### Someter a la granja web a una alta carga, generada con la herramienta Apache Benchmark, teniendo primero nginx y después haproxy.
 
 ### 1. Configurar una máquina e instalar el NginX como balanceador de carga
-En esta práctica vamos a utilizar NginX con el objetivo de de redirigir el tráfico entre un grupo de servidores, pero para ello la configuración básica de NginX no nos sirve, para modificarla debemos acceder al fichero de configuración /etc/nginx/conf.d/default.conf y debemos modificarlo como vemos a continuación:
+
+En esta práctica vamos a utilizar NginX con el objetivo de de redirigir el tráfico entre un grupo de servidores, pero para ello la configuración básica de NginX no nos sirve, para modificarla debemos acceder al fichero de configuración _/etc/nginx/conf.d/default.conf_ y debemos modificarlo como vemos a continuación:
 
 upstream apaches {
 
@@ -56,16 +57,27 @@ server{
       }
 }
 
+A continuación comprobamos el funcionamiento del balanceador mediante el uso de curl desde una cuarta máquina hacia el balanceador:
+
+      $curl http://192.168.1.102
+      $curl http://192.168.1.102
+      
+En la primera ejecución de la instrucción curl el servidor al cual el balanceador envía la petición es el servidor 1 mientras que la segunda petición es enviada al servidor 2 como podemos ver en las imágenes a continuación:
+
 ![Balanceo de carga mediante NginX](./imagenes/nginx_servidor_1.png)
 
+Primera ejecución de la instrucción curl, respondida por el servidor 1, dirección 192.168.1.100
 
 ![Balanceo de carga mediante NginX](./imagenes/nginx_servidor_2.png)
+
+Segunda ejecución de la instrucción curl utilizando, respondida por el servidor 1, dirección 192.168.1.101
 
 Desde una cuarta máquina virtual hemos pedido al balanceador que nos muestre la página index.html. Puesto que nginx usa un algoritmo Round-Robin, este primero muestra el index.html del servidor 1. Si seguidamente se lo volvemos a pedir al balanceador, este mostrará el index.html del servidor 2. 
 
 
 ### 2. Configurar una máquina e instalar el haproxy como balanceador de carga
 
+Tras la instalación de HaProxy debemos modificar el archivo _/etc/haproxy/haproxy.cfg_ tal como se muestra a continuación ya que la configuración que viene por defecto no nos sirve, el balanceador debe conocer la dirección de los servidores a los cuales servirá las peticiones:
 
 global
 
