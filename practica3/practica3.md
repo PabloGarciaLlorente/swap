@@ -26,63 +26,51 @@ A continuación hemos hemos instalado HaProxy en la misma máquina utilizando el
 3. #### Someter a la granja web a una alta carga, generada con la herramienta Apache Benchmark, teniendo primero nginx y después haproxy.
 
 ### 1. Configurar una máquina e instalar el NginX como balanceador de carga
+En esta práctica vamos a utilizar NginX con el objetivo de de redirigir el tráfico entre un grupo de servidores, pero para ello la configuración básica de NginX no nos sirve, para modificarla debemos acceder al fichero de configuración /etc/nginx/conf.d/default.conf y debemos modificarlo como vemos a continuación:
 
-Para probar el funcionamiento de la copia de archivos por ssh vamos a crear un archivo directamente en otro ordenador, que en nuestro caso sería otra máquina virtual, conectado mediante ssh, más específicamente, indicaremos al comando tar que queremos que use stdout como destino y mandar con una pipe la salida al ssh. Éste debe coger la salida del tar y escribirla en un fichero. La orden sería:
+upstream apaches {
+//dirección de nuestros servidores
+      server 192.168.1.100;
+      server 192.168.1.101;
+}
+server{
+      listen 80;
+      server_name balanceador;
+      access_log /var/log/nginx/balanceador.access.log;
+      error_log /var/log/nginx/balanceador.error.log;
+      root /var/www/;
+      location /
+      {
+            proxy_pass http://apaches;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_http_version 1.1;
+            proxy_set_header Connection "";
+      }
+}
 
-    $tar czf - | ssh 192.168.1.101 'cat > ~/tar.tgz'
+![Balanceo de carga mediante NginX](./imagenes/nginx_servidor_1.png)
 
-Ejecución de la orden, al no indicar el directorio al cual se mandará el archivo, se creará en el directorio /home/usuario del usuario que se ha utilizado para conectar el ssh, esto se ejecuta en la máquina 1 y el archivo se crea en la máquina 2:
 
-![Creación de un archivo en una máquina remota mediante ssh](creaciondearchivossh(maq1).png.PNG)                               
-_Creación de un archivo en una máquina remota mediante ssh._
-
-Y aquí podemos ver el resultado en la máquina 2:
-
-![Comprobación de la creación de un archivo en una máquina remota mediante ssh](comprobacioncreaciondearchivossh(maq2).png.PNG)        
-_Comprobación de la creación de un archivo en una máquina remota mediante ssh._
-
-El archivo tar.tgz se ha creado en el directorio indicado, en este caso el directorio por defecto ya que no se le indicó ningún escritorio, correctamente.
+![Balanceo de carga mediante NginX](./imagenes/nginx_servidor_2.png)
 
 
 ### 2. Configurar una máquina e instalar el haproxy como balanceador de carga
 
-Para trabajar podemos optar por hacerlo como root o como usuario sin privilegios de root. En principio, podremos realizar todas las configuraciones como usuario sin privilegios por lo que se recomienda usar esta cuenta. En este caso se requiere que el usuario sea el dueño de la carpeta donde residen los archivos que hay en el espacio web (en ambas máquinas):
+![Balanceo de carga mediante haproxy](./imagenes/haproxy_servidor_1.png)
 
-      $sudo chown pablo:pablo –R /var/www
-      
-Para probar el funcionamiento del rsync vamos a clonar una carpeta cualquiera. Por ejemplo, para clonar la carpeta con el contenido del servidor web principal, en la máquina 2 ejecutaremos:
 
-      $rsync -avz -e ssh 192.168.1.100:/var/www/ /var/www/
-      
-Ejecución de la orden previa:
+![Balanceo de carga mediante HaProxy](./imagenes/haproxy_servidor_2.png)
 
-![](ClonarCarpetaSrync.png.PNG)
-      
-Nos pedirá la clave del usuario en la máquina 1, tras introducirla correctamente, podremos comprobar que el directorio /var/www queda clonado de forma idéntica en ambas máquinas:
-
-      ls -la /var/www
-      
-Comprovación de la correcta clonación en la máquina 1:
-
-![](Comprobacionclonacion(maq1).png.PNG)
-
-Comprovación de la correcta clonación en la máquina 2:
-
-![](Comprobacionclonacion(maq2).png.PNG)
       
       
 ### 3. Someter a la granja web a una alta carga, generada con la herramienta Apache Benchmark, teniendo primero nginx y después haproxy.
 
-Para conectar dos equipos mediante ssh sin que requiera la contraseña se suele utilizar autenticación con un par de claves pública-privada. Mediante ssh-keygen podemos generar la clave, con la opción -t para el tipo de clave. Así, en la máquina 2 ejecutaremos:
-      
-      $ssh-keygen -b 4096 -t rsa
-
-Para hacer la copia de la clave existe se utiliza el comando ssh-copy-id, que viene integrado con el comando ssh. Esto nos permitirá copiar la clave a la máquina 1, a la cual querremos acceder desde la máquina 2:
-
-      $ssh-copy-id 192.168.1.100
-      
-Con esto ya podremos acceder a la máquina 1 sin utilizar contraseña como podemos ver en la imagen siguiente:
-
-![Acceso mediante ssh sin utilizar contraseña](sshSinContraseña.png.PNG)
 
 
+![Balanceo de carga mediante NginX](./imagenes/nginx.PNG)
+
+![Balanceo de carga mediante NginX con los pesos modificados](./imagenes/nginx_pesos_modificados.PNG)
+
+![Balanceo de carga mediante HaProxy](./imagenes/haproxy.PNG)
