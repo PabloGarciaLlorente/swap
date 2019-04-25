@@ -1,14 +1,18 @@
-# Práctica 2
+# Práctica 3
 ### Autores
 Eugenio Alcántara García  
 Pablo García Llorente
 
 ## Preparación de las herramientas
-Para poder abordar la práticas debemos de realizar la instalación de la herramienta Rsync sobre las máquinas virtuales creadas a lo largo de la práctica previa, para instalar Rsync simplemente abrimos la terminal y escribimos:
 
-      $sudo apt-get install rsync 
+En esta práctica debemos crear una nueva máquina que funcionará como balanceador de carga, tomará las peticiones lanzadas desde una cuarta máquina y las distribuirá entre nuestras máquinas servidor que hemos creado a lo largo de las dos primeras prácticas. Con esto conseguiremos repartir el trabajo entre todas nuestras máquinas, el trabajo se puede distribuir de múltiples formas mediante diferentes algoritmos y diferentes balanceadores de carga, en esta práctica utilizaremos dos tipos NginX y HaProxy, para instalar NginX ejecutaremos los siguientes comandos:
+      $sudo apt-get update && sudo apt-get dist-upgrade && sudo apt-get autoremove
+      
+      $sudo apt-get install nginx
+      
+      $sudo systemctl start nginx
 
-Una vez hayamos seguido todos los pasos e instalado todos los paquetes necesario, podemos comenzar a realizar la práctica.  
+ 
 
 ## Cuestiones a resolver
 
