@@ -29,12 +29,18 @@ A continuación hemos hemos instalado HaProxy en la misma máquina utilizando el
 En esta práctica vamos a utilizar NginX con el objetivo de de redirigir el tráfico entre un grupo de servidores, pero para ello la configuración básica de NginX no nos sirve, para modificarla debemos acceder al fichero de configuración /etc/nginx/conf.d/default.conf y debemos modificarlo como vemos a continuación:
 
 upstream apaches {
+
 //dirección de nuestros servidores
+
       server 192.168.1.100;
+      
       server 192.168.1.101;
+      
 }
 server{
+
       listen 80;
+      
       server_name balanceador;
       access_log /var/log/nginx/balanceador.access.log;
       error_log /var/log/nginx/balanceador.error.log;
