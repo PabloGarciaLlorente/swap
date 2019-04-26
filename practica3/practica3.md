@@ -135,6 +135,6 @@ En esta imagen podemos ver los resultado obtenido al ejercutar la Apache Benchma
 En esta imagen podemos ver los resultado obtenido al ejercutar la Apache Benchmark teniendo activada la herramienta NginX con algunos de los pesos modificados.
 
 ![Balanceo de carga mediante HaProxy](./imagenes/haproxy.PNG)
-En esta imagen podemos ver los resultado obtenido al ejercutar la Apache Benchmark teniendo activada la herramienta HaProxy.
+En esta imagen podemos ver los resultado obtenido al ejercutar la Apache Benchmark teniendo activada la herramienta HaProxy. En la tercera máquina virtual (el balanceador) podemos apreciar que lo que más recursos está ocupando es el HaProxy. Mientras que al igual que en el NginX, tanto en la máquina virtual 1 (servidor 1), como la máquina virtual 2 (servidor 2) están repartíendose la ejecuacción del Apache Benchmark a través del balanceador. 
 
 A lo largo de esta prática lo que hemos conseguido es balanceadar la carga de un servidor web entre dos máquinas vistuales previamente creadas. Todo esto supone un amumento concurrente del servidor y una disminución del tiempo medio de respuesta.
