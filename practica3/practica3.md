@@ -132,3 +132,5 @@ En esta imagen podemos ver los resultado obtenido al ejercutar la Apache Benchma
 
 ![Balanceo de carga mediante HaProxy](./imagenes/haproxy.PNG)
 En esta imagen podemos ver los resultado obtenido al ejercutar la Apache Benchmark teniendo activada la herramienta HaProxy.
+
+A lo largo de esta prática lo que hemos conseguido es balanceadar la carga de un servidor web entre dos máquinas vistuales previamente creadas. Todo esto supone un amumento concurrente del servidor y una disminución del tiempo medio de respuesta.
