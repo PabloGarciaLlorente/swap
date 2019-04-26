@@ -129,7 +129,7 @@ Mediante la herramienta top (puesta en el servidor 1, servidor 2 y balanceador) 
 La orden anterior la lanzaremos tanto para el uso de NginX como para el uso de HaProxy.
 
 ![Balanceo de carga mediante NginX](./imagenes/nginx.PNG)
-En esta imagen podemos ver los resultado obtenido al ejercutar la Apache Benchmark teniendo activada la herramienta NginX. 
+En esta imagen podemos ver los resultado obtenido al ejercutar la Apache Benchmark teniendo activada la herramienta NginX. En la tercera máquina virtual (el balanceador) podemos apreciar que lo que más recursos está ocupando es el NginX. Mientras que tanto en la máquina virtual 1 (servidor 1), tanto como la máquina virtual 2 (servidor 2) están repartíendose la ejecuacción del Apache Benchmark gracias al balanceador. En el top figura como Apache2.  
 
 ![Balanceo de carga mediante NginX con los pesos modificados](./imagenes/nginx_pesos_modificados.PNG)
 En esta imagen podemos ver los resultado obtenido al ejercutar la Apache Benchmark teniendo activada la herramienta NginX con algunos de los pesos modificados.
