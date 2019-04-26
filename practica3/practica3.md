@@ -125,7 +125,7 @@ Segunda ejecución de la instrucción curl, respondida por el servidor 2, direcc
 
 
 ![Balanceo de carga mediante NginX](./imagenes/nginx.PNG)
-Mediante la herramienta top (puesta en el servidor 1, servidor 2 y balanceador) podemos ver el benchmark lanzado a través de la cuarta máquina virtual. 
+Mediante la herramienta top (puesta en el servidor 1, servidor 2 y balanceador) podemos ver el benchmark lanzado a través de la cuarta máquina virtual 
 
 ![Balanceo de carga mediante NginX con los pesos modificados](./imagenes/nginx_pesos_modificados.PNG)
 
