@@ -122,7 +122,11 @@ Segunda ejecución de la instrucción curl, respondida por el servidor 2, direcc
 
 ### 3. Someter a la granja web a una alta carga, generada con la herramienta Apache Benchmark, teniendo primero nginx y después haproxy.
 
-Mediante la herramienta top (puesta en el servidor 1, servidor 2 y balanceador) podemos ver el benchmark lanzado a través de la cuarta máquina virtual. Esto lo vamos a hacer teniendo solo activada la herramienta NginX y depués teniendo solo activada la herramienta HaProxy. 
+Mediante la herramienta top (puesta en el servidor 1, servidor 2 y balanceador) podemos ver el benchmark lanzado a través de la cuarta máquina virtual. Esto lo vamos a hacer teniendo solo activada la herramienta NginX y depués teniendo solo activada la herramienta HaProxy. Con la cuarta máquina virtual para lanzar la orden que vemos a continuación y así ver el resultando del Benchmark.
+
+      $ ab -n 1000 -c 10 http://192.168.1.102/index.html
+      
+La orden anterior la lanzaremos tanto para el uso de NginX como para el uso de HaProxy.
 
 ![Balanceo de carga mediante NginX](./imagenes/nginx.PNG)
 En esta imagen podemos ver los resultado obtenido al ejercutar la Apache Benchmark teniendo activada la herramienta NginX. 
