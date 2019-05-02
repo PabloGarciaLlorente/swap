@@ -33,7 +33,15 @@
 
 ![](./elecciones/imagenes/EjecucionContratoV2.png)
 
+![](./elecciones/imagenes/EthereumLogo.png)
+
+![](./elecciones/imagenes/EthereumPrices.png)
+
 ![](./elecciones/imagenes/GanacheCuentas1.png)
+
+![](./elecciones/imagenes/HyperledgerLogo.png)
+
+![](./elecciones/imagenes/Metamask+Ganache+Truffle.png)
 
 ![](./elecciones/imagenes/TestV2.png)
 
@@ -49,11 +57,11 @@
 
 ![](./elecciones/imagenes/contratosInteligentes.jpg)
 
-![](./elecciones/imagenes/contrato.png)
+![](./elecciones/imagenes/dapp_diagram.png)
 
-![](./elecciones/imagenes/contrato.png)
+![](./elecciones/imagenes/ethereum_blockchain_nodes_diagram.png)
 
-![](./elecciones/imagenes/contrato.png)
+![](./elecciones/imagenes/web_application_diagram.png)
 
 ![](./elecciones/imagenes/contrato.png)
 
