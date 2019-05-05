@@ -87,7 +87,7 @@ Tal y como heos mencionado anteriormente, los contratos inteligentes funcionan a
     
 ##   5. Ethereum
 
-![](./imagenes/EthereumLogo.png)    
+![](./elecciones/imagenes/EthereumLogo.png)    
 
 ###  ¿Qué es Ethereum?
 
