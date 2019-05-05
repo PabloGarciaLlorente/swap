@@ -3,6 +3,7 @@
 ## Autores
 
   Pablo García Llorente
+  
   Eugenio Alcántara García
   
 ## Índice
@@ -37,13 +38,13 @@
 
 Blockchain es una base de datos descentralizada que almacena un registro de activos y transacciones en un red Peer-to-Peer (o P2P). Describiéndolo de una forma sencilla, es un libro contable que registra quién posee qué y quién negocia con qué. Las transacciones son aseguradas a través del uso de criptografía. Los bloques, que agrupan transacciones, son asegurados con criptografía también y enlazados en una secuencia temporal creando un registro inmutable. Este registro es replicado en cada ordenador que usa la red lo que hace que sea extremadamente complicado de manipular a diferencia de una base de datos controlado por una única entidad o autoridad central.
 
-![](./imagenes/ethereum_blockchain_nodes_diagram.png)
+![](./elecciones/imagenes/ethereum_blockchain_nodes_diagram.png)
 
 Blockchain surgió y se popularizó a partir de las cryptomonedas, más específicamente Bitcoin. Pero esta tecnología puede ser usada con otros muchos tipos de activos digitales: certificados, títulos, contratos, nuevos activos digitales o cualquier activo del mundo real representado de forma inequívoca con su representación digital, incluida la información personal.
 
 Blockchain permite el compartir la información de forma clara y segura, permitiendo a los usuarios confiar en la tecnología y que sus activos están asegurados en ella. Existen múltiples tipos de blockchain dependiendo de su accesibilidad, puede ser pública, como Ethereum o Bitcoin, en las cuales todo el mundo puede unirse, los unicos requisitos son un ordenador y acceso a Internet, privada, como Hyperledger o Quorum, que requieren la aprobación de los participantes para poder acceder, o híbridas, que son una combinación de las públicas y las privadas, en ellas los nodos participantes son elegidos o restringidos por una persona o grupo de personas pero todas las transacciones son públicas.
 
-![](./imagenes/Tipos_blockchain.jpg)
+![](./elecciones/imagenes/Tipos_blockchain.jpg)
   
 ##   2. Nuestro proyecto
 
@@ -54,11 +55,9 @@ Hemos decidido crear un sistema de votación a través de la Blockchain. Si en v
     
 Queremos hacerla en la Blockchain, donde cualquier persona conectada a la web pueda participar en la votación. Nos tenemos que asegurar de que sus votos sean contabilizados y que solo sean contados una vez. 
 
-![](./imagenes/web_application_diagram.png)
-
 En vez de tener una red, un servidor central y una base da datos. La Blockchain es una red y una base de datos todo en uno. La Blockchain es una red peer to peer de ordenadores las cualres se les llama nodos. Estos comparten todos los datos y el código en la red. De modo que si un dispistivo se conecta a la red, formaría parte de la red siendo un nodo y se comunicaría con todos los nodos de cómputo de la red. Este dispositivo pasaría a tener una copia de los datos y el código de la Blockchain. Por lo que ya no tenemos más servidores centrales, tan solo un grupo de ordenadores que se comunican entre si en la misma red. 
 
-![](./imagenes/dapp_diagram.png)
+![](./elecciones/imagenes/dapp_diagram.png)
 
 Todas los datos de las transacciones que es compartido a través de los nodos de la blockchain está contenido en lo que se denomina bloque, que están encadenadoes entre si en un libro. Todos los datos se encuentran de forma pública en lo que hemos denominado 'libro' bien seguros con un hash criptográfico. Los nodos que hemos mencionado anterioremnte se aseguran de que todas las copias de los datos distribuidas a través de la red sean idénticas. Esta es una razón muy de peso por la que hemos decidido realizar una aplicación para votar a través de una cadena de bloques. 
 
@@ -76,7 +75,7 @@ El uso de blockchain requiere más operaciones que en el caso de una base de dat
 
 Para finalizar includo un gráfico que nos da una idea de cuándo puede se útil utilizar blockchain y que tipo utilizar.
   
-![](./imagenes/blockchain-vs-bbdd.png)
+![](./elecciones/imagenes/blockchain-vs-bbdd.png)
   
 ##   4. ¿Qué son los contratos inteligentes?
 
@@ -84,7 +83,7 @@ Los contratos inteligentes son programas informáticos que se asientan sobre una
 
 Tal y como heos mencionado anteriormente, los contratos inteligentes funcionan automáticamente ejecutando unas actuaciones predefinidas en su código en el momento que estas se cumplen. Tal y como podemos ver en la imagen a continuación.
 
-![](./imagenes/contratosInteligentes.jpg)
+![](./elecciones/imagenes/contratosInteligentes.jpg)
     
 ##   5. Ethereum
 
@@ -102,7 +101,7 @@ Ether es la cryptomoneda de Ethereum, es utilizada por los clientes de la plataf
 
 Aquí podemos ver una gráfica con los precios de Ether a lo largo del tiempo:
 
-![](./imagenes/EthereumPrices.png)
+![](./elecciones/imagenes/EthereumPrices.png)
 
 ### ¿Qué es el Gas?
 
@@ -120,7 +119,7 @@ La primera herramienta que debemos instalar en nuestro sistema es el Node Packag
 
 Este paquete se puede descargar desde https://nodejs.org/en/, como podemos ver en la siguiente imagen, se debe tener en cuenta que nosotros hemos realizado la aplicación en un Mac pero las imagenes las hemos tomado desde un Windows.
 
-![](./imagenes/npm.PNG)
+![](./elecciones/imagenes/npm.PNG)
 
 Para comprobar que se ha instalado correctamente ejecutamos el siguiente comando, que muestra la versión de nodejs instalada, desde la terminal:
 
@@ -128,7 +127,7 @@ Para comprobar que se ha instalado correctamente ejecutamos el siguiente comando
          
 ### Truffle Framework
 
-![](./imagenes/Truffle.PNG)
+![](./elecciones/imagenes/Truffle.PNG)
 
 Truffle es el framework más popular para el desarrollo de Ethereum hoy en día. Este nos ofrece:
 
@@ -145,7 +144,7 @@ Todo esto lo veremos a lo largo del desarrollo del proyecto. Para instalar Truff
 
 #### Ganache
 
-![](./imagenes/Ganache.PNG)
+![](./elecciones/imagenes/Ganache.PNG)
 
 La página oficial de Ganache, https://truffleframework.com/ganache, lo describe como blockchain en un click, crea una blockchain de Ethereum rápidamente que te permita probar, ejecutar comandos, e inspeccionar el estado mientras controlas como funciona la cadena.
 
@@ -153,18 +152,18 @@ Ganache te permite visualizar la información de las cuentas, su estado, incluye
 
 A continuación podemos ver la interfaz de Ganache con las cuentas que hemos utilizado para nuestra aplicación.
 
-![](./imagenes/GanacheCuentas1.png)
+![](./elecciones/imagenes/GanacheCuentas1.png)
 
 
 ### Metamask
 
-![](./imagenes/metamask.PNG)
+![](./elecciones/imagenes/metamask.PNG)
 
 MetaMask es la forma más fácil de interactuar con dApps en el navegador. Es una extensión de Chrome o Firefox que conecta a una red de Ethereum sin ejecutar un nodo completo en el navegador de la máquina. Puede conectar a la red principal de Ethereum, cualquiera de sus redes de prueba (Ropsten, Kovan, y Rinkeby), o una blockchain local, como será la nuestra, creada por Ganache. Para el desarrollo con Truffle, esto significa que podremos utilizar nuestra dApp de la misma forma que los usuarios interactuarán con una red en vivo.
 
 Para instalar Metamask debemos seguir el siguiente enlace: https://metamask.io/ y añadir la extensión al navegador de nuestra elección (Chrome o Firefox). Explicaremos la utilización de Metamask más extensivamente a lo largo del desarrollo de la aplicación.
   
-![](./imagenes/Metamask+Ganache+Truffle.png)   
+![](./elecciones/imagenes/Metamask+Ganache+Truffle.png)   
   
 ##   7. Nuestra primera aplicación
 
@@ -180,13 +179,13 @@ Nuestra Dapp nos permitirá inscribir los candidatos que se prensetan a las elec
 
 Comenzamos declarando la version de solidity que vamos a utilizar y declaramos el contracto con la palabra 'contract'. Todo esto se puede ver en la iamgen de a continuación. 
 
-![](./imagenes/contratoV1.png)
+![](./elecciones/imagenes/contratoV1.png)
 
 Como hemos pedido ver, hemos declarado el nombre de los candidatos a las elecciones. Además hemos declarado un cosntructor que será llamado siempre que despleguemos el contrato inteligente en la blockcahin. 
 
 Para poder desplegar el contrato en la Blockchain tendremos que crear un nuevo archivo en el directorio 'migrations'. Como podemos ver en la imagen inferior, requerimos el contrato recién creado y se lo asignamos a una varible llamada 'Election'. 
 
-![](./imagenes/jsV1.png)
+![](./elecciones/imagenes/jsV1.png)
 
 Una vez hayamos miagrado nuestro contrato inteligente a la blockchain con el comando:
 
@@ -200,7 +199,7 @@ Procedemos abrir la consola con el siguiente comando para interactuar con el con
 
 Una vez dentro de la consola, debemos lanzar una instancia del contrato para ver si podemos leer el nombre de los canditatos. Esto se puede ver perfectamente en la iamgen que se encuentra a continucación. En la cual nos muestra al 'Candidato 1'. 
 
-![](./imagenes/TruffleConsoleV1.png)
+![](./elecciones/imagenes/TruffleConsoleV1.png)
 
 Todo esto ha formado parte de una pequeña aplicación para ver si funcionaba de forma correcta y ya poder escalar a la aplicaión completa.  
   
@@ -208,7 +207,7 @@ Todo esto ha formado parte de una pequeña aplicación para ver si funcionaba de
 
 Como se puede apreciar, hemos añadido una función para añadir candidatos que coge un argumento que represneta el nombre del candidato. La visiblidad de esta función es provada puesto que solo queremos llamarla dentro del contrato. 
 
-![](./imagenes/contratoV2.png)
+![](./elecciones/imagenes/contratoV2.png)
 
 Para poder volver a migrar el contrato con la nueva función que hemos introducido, tendremos que hacer uso de otro comando para ello. Este comando es:
 
@@ -218,7 +217,7 @@ Para poder volver a migrar el contrato con la nueva función que hemos introduci
 
 Ahora sí que podremos interactuar con los candidatos dentro de la consola. Esta interacción con los candidatos de las elecciones se puede apreciar en la iamgen de a continuacuón. 
 
-![](./imagenes/EjecucionContratoV2.png)
+![](./elecciones/imagenes/EjecucionContratoV2.png)
 
 Una vez hayamos iteractuado a través de la consola con los candidatos, procederemos a realizar una serie de tests. Para poder realizar estos tests, tendremos que tener la herramienta Ganache ejecutándose. Una vez la tengamos ejecutándose podremos hacer uso del comando: 
 
@@ -230,9 +229,9 @@ El segundo test inspecciona que el valor de cada candidato en las elecciones. As
 
 Como se puede comprobar, estos dos test se pasan de forma satisfactoria. 
 
-![](./imagenes/TestV2.png)
+![](./elecciones/imagenes/TestV2.png)
 
-![](./imagenes/TestV2Fallo.png)
+![](./elecciones/imagenes/TestV2Fallo.png)
 
 ##   9. Bibliografía
 
