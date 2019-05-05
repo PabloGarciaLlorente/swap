@@ -168,25 +168,71 @@ Para instalar Metamask debemos seguir el siguiente enlace: https://metamask.io/ 
   
 ##   7. Nuestra primera aplicación
 
-![](./imagenes/TruffleConsoleV1.png)
+Una vez hemso isntalado todas las apliciciones y herramientas mencionadas anteriormente, creamos nuestros directorio 'elecciones'. Una vez creado nuestro directorio, vamos a hacer uso de la herramienta truffle que nos ayudará a crear todos los subdirectorio necesarios para abordar nuestra Dapp de votación. Tenemos los siguientes directorios:
+
+  - contracts: es realmente donde cobra vida nuestro contrato inteligente. Tambíen posee el contrato de miagración para     la blockchain. 
+  - migrations: aquí tenemos todos los archivos de migración para poder actualizar el estado de la blockchain.
+  - node_modules: aquí encontramos todas las dependencias de los nodos.
+  - src: donde desarrolamos la Dapp a nivel de usuario.
+  - test: para realizar todas las pruebas pertinentes con nuestro contrato inteligente.
+  
+Nuestra Dapp nos permitirá inscribir los candidatos que se prensetan a las elecciones y llevar la cuenta de número de votos que ha recibido cada uno. También llevará la premisa de que solo se podrá votar una vez por cuenta. 
+
+Comenzamos declarando la version de solidity que vamos a utilizar y declaramos el contracto con la palabra 'contract'. Todo esto se puede ver en la iamgen de a continuación. 
 
 ![](./imagenes/contratoV1.png)
 
+Como hemos pedido ver, hemos declarado el nombre de los candidatos a las elecciones. Además hemos declarado un cosntructor que será llamado siempre que despleguemos el contrato inteligente en la blockcahin. 
+
+Para poder desplegar el contrato en la Blockchain tendremos que crear un nuevo archivo en el directorio 'migrations'. Como podemos ver en la imagen inferior, requerimos el contrato recién creado y se lo asignamos a una varible llamada 'Election'. 
+
 ![](./imagenes/jsV1.png)
 
+Una vez hayamos miagrado nuestro contrato inteligente a la blockchain con el comando:
+
+    $ truffle migrate
+    
 ![](./imagenes/CompilarContratosV1.png)
+
+Procedemos abrir la consola con el siguiente comando para interactuar con el contrato.
+
+    $ truffle console
+
+Una vez dentro de la consola, debemos lanzar una instancia del contrato para ver si podemos leer el nombre de los canditatos. Esto se puede ver perfectamente en la iamgen que se encuentra a continucación. En la cual nos muestra al 'Candidato 1'. 
+
+![](./imagenes/TruffleConsoleV1.png)
+
+Todo esto ha formado parte de una pequeña aplicación para ver si funcionaba de forma correcta y ya poder escalar a la aplicaión completa.  
   
 ##   8. Desarrollo de la aplicación
 
+Como se puede apreciar, hemos añadido una función para añadir candidatos que coge un argumento que represneta el nombre del candidato. La visiblidad de esta función es provada puesto que solo queremos llamarla dentro del contrato. 
+
+![](./imagenes/contratoV2.png)
+
+Para poder volver a migrar el contrato con la nueva función que hemos introducido, tendremos que hacer uso de otro comando para ello. Este comando es:
+
+    $ truffle migrate --reset
+    
 ![](./imagenes/CompilarContratoV2.png)
 
+Ahora sí que podremos interactuar con los candidatos dentro de la consola. Esta interacción con los candidatos de las elecciones se puede apreciar en la iamgen de a continuacuón. 
+
 ![](./imagenes/EjecucionContratoV2.png)
+
+Una vez hayamos iteractuado a través de la consola con los candidatos, procederemos a realizar una serie de tests. Para poder realizar estos tests, tendremos que tener la herramienta Ganache ejecutándose. Una vez la tengamos ejecutándose podremos hacer uso del comando: 
+
+    $ truffle test
+    
+El primer test comprueba que el contrato haya sido inicializado con el número correcto de candidatos. En este caso está comprobando si el número de candidatos es igual a 2. 
+
+El segundo test inspecciona que el valor de cada candidato en las elecciones. Asegurándose de que el id, nombre y número de votos sean correctos. 
+
+Como se puede comprobar, estos dos test se pasan de forma satisfactoria. 
 
 ![](./imagenes/TestV2.png)
 
 ![](./imagenes/TestV2Fallo.png)
-
-![](./imagenes/contratoV2.png)
 
 ##   9. Bibliografía
 
