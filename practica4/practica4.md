@@ -50,4 +50,16 @@ Al ejecutarla nos mostrará lo que podemos apreciar en la imagen de a continuaci
 
 ![iPtable abierto](./imagenes/iptablesAbierto.PNG)
 
+Ahora vamos a proceder a abrir el puerto 22 y el 80 para permitir el acceso por SSH. Para ello tendremos ejecutar las sigueintes líneas de comando.
+
+    $ iptables -A INPUT -p tcp --dport 22 -j ACCEPT 
+    $ iptables -A OUTPUT -p udp --sport 22 -j ACCEPT
+    $ iptables -A INPUT -p tcp --dport 80 -j ACCEPT 
+    $ iptables -A OUTPUT -p udp --sport 80 -j ACCEPT
+
+Al haber ejecutado las líneas anteriores, volvemos a ver el estado del cortafuegos para ver si de verdad se ha permitido el acceso a esos puertos a través de SSH. Como podemos ver en la imagen, las instrucciones se han ejecutado correctamente. 
+
+![iPtables 1](./imagenes/iptables1.PNG)
+ 
+
 
