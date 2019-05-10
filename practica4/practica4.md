@@ -22,7 +22,7 @@ Y le agregaremos dos nuevos cerficiados debajo de la línea donde pone SSLEngine
     
 Depués de haber añadido esos dos certificados, el archivo default-ssl quedaría como en la imagen de a continucación. 
 
-![archivo_nano default-ssl.conf](./imagenes/archivo_nano default-ssl.conf.PNG)
+![archivo_default_ssl](./imagenes/archivo_default_ssl.PNG)
 
 Una vez guardado el archivo (siendo super usaurio), activamos el sitio default-ssl y reiniciamos apache.
         
