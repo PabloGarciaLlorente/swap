@@ -30,3 +30,12 @@ Una vez guardado el archivo (siendo super usaurio), activamos el sitio default-s
     $ service apache2 reload
     
 Cuando tengamos reiniciado Apache, vamos a acceder al servidor web mediante el protocolo HTTPS. Por último, como petendemos que la granja nos permita usar el HTTPS, vamos a configurar el balanceador par que también acepte este trácfico. Para ello tendremos que copiar los archivos .crt y .key a todas las máquinas de la granja web.  
+
+    $ sudo scp apache.crt eugenio@192.168.1.101:apache.crt 
+    $ sudo scp apache.crt eugenio@192.168.1.101:apache.key
+    
+Esa dos líneas de comandos tendremos que lanzarlas para cada máquina virtual. En el caso del balanceador tendremos que instalar SSH previamente oara pocer ejecutar los comandos anteriores. Una vez hayamos ejecutado ambas órdenes, los moveremos al directorio /etc/apache2/ssl con el comando mov.
+
+![Certificados máquina virtual 1](./imagenes/certificados_M1.PNG)
+
+
