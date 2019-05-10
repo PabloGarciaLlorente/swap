@@ -34,7 +34,7 @@ Cuando tengamos reiniciado Apache, vamos a acceder al servidor web mediante el p
     $ sudo scp apache.crt eugenio@192.168.1.101:apache.crt 
     $ sudo scp apache.crt eugenio@192.168.1.101:apache.key
     
-Esa dos líneas de comandos tendremos que lanzarlas para cada máquina virtual. En el caso del balanceador tendremos que instalar SSH previamente oara pocer ejecutar los comandos anteriores. Una vez hayamos ejecutado ambas órdenes, los moveremos al directorio /etc/apache2/ssl con el comando mov.
+Esas dos líneas de comandos tendremos que lanzarlas para cada máquina virtual. En el caso del balanceador tendremos que instalar SSH previamente oara pocer ejecutar los comandos anteriores. Una vez hayamos ejecutado ambas órdenes, los moveremos al directorio /etc/apache2/ssl con el comando mov.
 
 ![Certificados máquina virtual 1](./imagenes/certificados_M1.PNG)
 
