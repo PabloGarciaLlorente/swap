@@ -42,3 +42,10 @@ Esa dos líneas de comandos tendremos que lanzarlas para cada máquina virtual. 
 
 ## Configuración del cortafuegos
 
+Con la herramienta iptables podremos establecer ciertas reglas y filtrar algunos tipos de tráfico. También se podrá controlar el acceso a ciertas páginas. Para comporbar el estado del cortafuegos tendremos que ejecutar la sigueinte orden. 
+
+    $ iptables –L –n -v
+    
+Al ejecutarla nos mostrará lo que podemos apreciar en la imagen de a continuación. 
+
+
