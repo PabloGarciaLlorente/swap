@@ -68,11 +68,23 @@ En el caso del HTTPS para configurar el servidor web para el puerto 443 usaríam
 Y para abrir el puerto 53 para permitir el acceso a DNS:
 
     $ iptables -A INPUT -m state --state NEW -p udp --dport 53 -j ACCEPT 
-    $ iptables -A INPUT -m state --state NEW -p tcp --dport    53 -j ACCEPT
+    $ iptables -A INPUT -m state --state NEW -p tcp --dport 53 -j ACCEPT
     
 Al haber ejecutado correctamente las intrucciones, al consultar el estado del cortafuegos nos quedaría de la siguiente manera.
 
 ![iPtables 2](./imagenes/iptables2.PNG)
+
+Hemos creado un script para para que se ejecute en el arranque del sistema. Este script se puede ver a continuación. 
+
+![Script](./imagenes/scriptIptables.PNG)
+
+Para poder ejecutarlo hemos tenido que darle permisos de ejecuación mediante el comando:
+
+    $ chmod +x /etc/activar-cortafuegos
+    
+A continuación, si queremos ejecutarlo durante el arranque del sistema debemos añadir el comando de ejecucción al archivo rc.local, que quedaría así.
+
+![rc.local](./imagenes/rcLocal.PNG)
 
 
  
