@@ -60,6 +60,21 @@ Ahora vamos a proceder a abrir el puerto 22 y el 80 para permitir el acceso por 
 Al haber ejecutado las líneas anteriores, volvemos a ver el estado del cortafuegos para ver si de verdad se ha permitido el acceso a esos puertos a través de SSH. Como podemos ver en la imagen, las instrucciones se han ejecutado correctamente. 
 
 ![iPtables 1](./imagenes/iptables1.PNG)
+
+En el caso del HTTPS para configurar el servidor web para el puerto 443 usaríamos otra instrucción.
+
+    $ iptables -A INPUT -m state --state NEW -p tcp --dport 443 -j ACCEPT
+
+Y para abrir el puerto 53 para permitir el acceso a DNS:
+
+    $ iptables -A INPUT -m state --state NEW -p udp --dport 53 -j ACCEPT 
+    $ iptables -A INPUT -m state --state NEW -p tcp --dport    53 -j ACCEPT
+    
+Al haber ejecutado correctamente las intrucciones, al consultar el estado del cortafuegos nos quedaría de la siguiente manera.
+
+![iPtables 2](./imagenes/iptables2.PNG)
+
+
  
 
 
