@@ -28,3 +28,5 @@ Una vez guardado el archivo (siendo super usaurio), activamos el sitio default-s
         
     $ 2ensite default-ssl
     $ service apache2 reload
+    
+Cuando tengamos reiniciado Apache, vamos a acceder al servidor web mediante el protocolo HTTPS. Por último, como petendemos que la granja nos permita usar el HTTPS, vamos a configurar el balanceador par que también acepte este trácfico. Para ello tendremos que copiar los archivos .crt y .key a todas las máquinas de la granja web.  
