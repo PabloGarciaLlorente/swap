@@ -86,6 +86,11 @@ A continuación, si queremos ejecutarlo durante el arranque del sistema debemos 
 
 ![rc.local](./imagenes/rcLocal.PNG)
 
+Así es como quedaría tras el arranque del sistema. 
+
+![iptables arranque](./imagenes/iptablesArranque.PNG)
+
+
 
  
 
