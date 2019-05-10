@@ -38,4 +38,5 @@ Esa dos líneas de comandos tendremos que lanzarlas para cada máquina virtual. 
 
 ![Certificados máquina virtual 1](./imagenes/certificados_M1.PNG)
 
+![Certificados máquina virtual 2](./imagenes/certificados_M2.PNG)
 
