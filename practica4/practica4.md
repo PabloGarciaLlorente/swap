@@ -4,7 +4,7 @@ Eugenio Alcántara García
 Pablo García Llorente
 
 ## Generar e instalar un certificado autofirmado
-Lo primero que debemos hacer para generar un certificado SSL autofirmado en Ubuntu Server, es activando activando los SSL de Apache, generar los certificados y especifinado los ruta a los certificados en la confirguración. 
+Lo primero que debemos hacer para generar un certificado SSL autofirmado en Ubuntu Server es activar los SSL de Apache, generar los certificados y especificar las rutas a los certificados en la confirguración. 
 
     $ a2enmod ssl
     $ service apache2 restart
@@ -20,7 +20,7 @@ Y le agregaremos dos nuevos cerficiados debajo de la línea donde pone SSLEngine
     SSLCertificateFile /etc/apache2/ssl/apache.crt 
     SSLCertificateKeyFile /etc/apache2/ssl/apache.key
     
-Depués de haber añadido esos dos certificados, el archivo default-ssl quedaría como en la imagen de a continucación. 
+Después de haber añadido esos dos certificados, el archivo default-ssl quedaría como en la imagen de a continucación. 
 
 ![Archivo default-ssl](./imagenes/archivo_default_ssl.PNG)
 
@@ -29,12 +29,12 @@ Una vez guardado el archivo (siendo super usaurio), activamos el sitio default-s
     $ 2ensite default-ssl
     $ service apache2 reload
     
-Cuando tengamos reiniciado Apache, vamos a acceder al servidor web mediante el protocolo HTTPS. Por último, como petendemos que la granja nos permita usar el HTTPS, vamos a configurar el balanceador par que también acepte este trácfico. Para ello tendremos que copiar los archivos .crt y .key a todas las máquinas de la granja web.  
+Cuando tengamos reiniciado Apache, vamos a acceder al servidor web mediante el protocolo HTTPS. Por último, como pretendemos que la granja nos permita usar el HTTPS, vamos a configurar el balanceador par que también acepte este trácfico. Para ello tendremos que copiar los archivos .crt y .key a todas las máquinas de la granja web.  
 
     $ sudo scp apache.crt eugenio@192.168.1.101:apache.crt 
     $ sudo scp apache.crt eugenio@192.168.1.101:apache.key
     
-Esas dos líneas de comandos tendremos que lanzarlas para cada máquina virtual. En el caso del balanceador tendremos que instalar SSH previamente oara pocer ejecutar los comandos anteriores. Una vez hayamos ejecutado ambas órdenes, los moveremos al directorio /etc/apache2/ssl con el comando mov.
+Esas dos líneas de comandos tendremos que lanzarlas para cada máquina virtual. En el caso del balanceador tendremos que instalar SSH previamente para poder ejecutar los comandos anteriores. Una vez hayamos ejecutado ambas órdenes, los moveremos al directorio /etc/apache2/ssl con el comando mov.
 
 ![Certificados máquina virtual 1](./imagenes/certificados_M1.PNG)
 
@@ -42,7 +42,7 @@ Esas dos líneas de comandos tendremos que lanzarlas para cada máquina virtual.
 
 ## Configuración del cortafuegos
 
-Con la herramienta iptables podremos establecer ciertas reglas y filtrar algunos tipos de tráfico. También se podrá controlar el acceso a ciertas páginas. Para comporbar el estado del cortafuegos tendremos que ejecutar la sigueinte orden. 
+Con la herramienta iptables podremos establecer ciertas reglas y filtrar algunos tipos de tráfico. También se podrá controlar el acceso a ciertas páginas. Para comprobar el estado del cortafuegos tendremos que ejecutar la sigueinte orden. 
 
     $ iptables –L –n -v
     
@@ -50,7 +50,7 @@ Al ejecutarla nos mostrará lo que podemos apreciar en la imagen de a continuaci
 
 ![iPtable abierto](./imagenes/iptablesAbierto.PNG)
 
-Ahora vamos a proceder a abrir el puerto 22 y el 80 para permitir el acceso por SSH. Para ello tendremos ejecutar las sigueintes líneas de comando.
+Ahora vamos a proceder a abrir el puerto 22 y el 80 para permitir el acceso por SSH, en el caso del puerto 22, y HTTP para el puerto 80. Para ello tendremos ejecutar las sigueintes líneas de comandos.
 
     $ iptables -A INPUT -p tcp --dport 22 -j ACCEPT 
     $ iptables -A OUTPUT -p udp --sport 22 -j ACCEPT
