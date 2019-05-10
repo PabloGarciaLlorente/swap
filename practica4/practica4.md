@@ -48,4 +48,6 @@ Con la herramienta iptables podremos establecer ciertas reglas y filtrar algunos
     
 Al ejecutarla nos mostrará lo que podemos apreciar en la imagen de a continuación. 
 
+![iPtable abierto](./imagenes/iptablesAbierto.PNG)
+
 
