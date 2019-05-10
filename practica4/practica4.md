@@ -40,3 +40,5 @@ Esa dos líneas de comandos tendremos que lanzarlas para cada máquina virtual. 
 
 ![Certificados máquina virtual 2](./imagenes/certificados_M2.PNG)
 
+## Configuración del cortafuegos
+
