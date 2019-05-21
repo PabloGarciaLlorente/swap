@@ -1,16 +1,97 @@
-#Ejercicios teoría
+# Ejercicios teoría
 
-##Tema 1
+## Tema 1
 
-###Ejercicio 1
+### Ejercicio 1
 
 Buscar información sobre las tareas o servicios web para los que se usan más los programas que comentamos al principio de la sesión:
 
-##Tema 2
+  1. Apache: El servidor HTTP Apache es un servidor web HTTP de código abierto, para plataformas Unix (BSD, GNU/Linux, etc.), Microsoft Windows, Macintosh y otras, que implementa el protocolo HTTP/1.1. Es utilizado principalmente para servir páginas web.
+  2. nginx: Es un servidor web/proxy inverso ligero de alto rendimiento y un proxy para protocolos de correo electrónico (IMAP/POP3). Originalmente fue creado para servir páginas web estáticas para sitios con mucho tráfico.
+  3. thttpd: es un servidor web de código libre disponible para la mayoría de las variantes de Unix. 
+Se caracteriza por ser simple, pequeño, portátil, rápido, y seguro, ya que utiliza los requerimientos mínimos de un servidor HTTP. Esto lo hace ideal para servir grandes volúmenes de información estática. 
+  4. Cherokee: es un servidor web multiplataforma libre escrito en C. Su objetivo es ser rápido y completamente funcional sin dejar de ser liviano, comparado con otros servidores web. Puede usarse como un sistema embebido y soporta complementos para aumentar sus funcionalidades. 
+  5. Node.js: es un entorno en tiempo de ejecución multiplataforma, de código abierto, para la capa del servidor (pero no limitándose a ello).
+        
+## Tema 2
 
 ### Ejercicio 1
 
 Calcular la disponibilidad del sistema si tenemos dos réplicas de cada elemento (en total 3 elementos en cada subsistema).
+
+        
+<thead>
+<tr>
+<th>Componente</th>
+<th>A<sub>n</sub></th>
+<th>A<sub>n-1</sub></th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Web</td>
+<td>0.9775</td>
+<td>0.85</td>
+<td>0.99662</td>
+</tr>
+<tr>
+<td>Aplicación</td>
+<td>0.99</td>
+<td>0.9</td>
+<td>0.999</td>
+</tr>
+<tr>
+<td>Base de datos</td>
+<td>0.999</td>
+<td>0.9999</td>
+<td>1</td>
+</tr>
+<tr>
+<td>DNS</td>
+<td>0.9996</td>
+<td>0.98</td>
+<td>0.99999</td>
+</tr>
+<tr>
+<td>Cortafuegos</td>
+<td>0.9775</td>
+<td>0.85</td>
+<td>0.99662</td>
+</tr>
+<tr>
+<td>Switch</td>
+<td>0.9999</td>
+<td>0.99</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Data Center</td>
+<td>0.9999</td>
+<td>0.9999</td>
+<td>1</td>
+</tr>
+<tr>
+<td>ISP</td>
+<td>0.9975</td>
+<td>0.95</td>
+<td>0.99987</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+<td><strong>Total</strong></td>
+<td>0.99214</td>
+</tr>
+</tbody>
+</table>
+Cortafuegos | 0.9775 | 0.85 | 0.99662
+Switch | 0.9999 | 0.99 | 1
+Data Center | 0.9999 | 0.9999 | 1
+ISP | 0.9975 | 0.95 | 0.99987
+- | - | Total | 0.99214
+
+
 
 ### Ejercicio 2
 
