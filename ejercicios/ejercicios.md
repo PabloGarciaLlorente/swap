@@ -19,7 +19,8 @@ Se caracteriza por ser simple, pequeño, portátil, rápido, y seguro, ya que ut
 
 Calcular la disponibilidad del sistema si tenemos dos réplicas de cada elemento (en total 3 elementos en cada subsistema).
 
-        
+
+<table>
 <thead>
 <tr>
 <th>Componente</th>
@@ -85,18 +86,13 @@ Calcular la disponibilidad del sistema si tenemos dos réplicas de cada elemento
 </tr>
 </tbody>
 </table>
-Cortafuegos | 0.9775 | 0.85 | 0.99662
-Switch | 0.9999 | 0.99 | 1
-Data Center | 0.9999 | 0.9999 | 1
-ISP | 0.9975 | 0.95 | 0.99987
-- | - | Total | 0.99214
-
-
 
 ### Ejercicio 2
 
 Buscar frameworks y librerías para diferentes lenguajes que permitan hacer aplicaciones altamente disponibles con relativa facilidad.
 Como ejemplo, examina PM2 https://github.com/Unitech/pm2 que sirve para administrar clústeres de NodeJS.
+
+
 
 ### Ejercicio 3
 
