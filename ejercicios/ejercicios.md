@@ -171,6 +171,12 @@ Comprobar qué puertos tienen abiertos nuestras máquinas, su estado, y qué pro
 Buscar información acerca de los tipos de ataques más comunes en servidores web (p.ej. secuestros de sesión).
 Detallar en qué consisten, y cómo se pueden evitar
 
+## Tema 7
+
+### Ejercicio 7
+
+Buscar información sobre los sistemas de ficheros en red más utilizados en la actualidad y comparar sus características. Hacer una lista de ventajas e inconvenientes de todos ellos, así como grandes sistemas en los que se utilicen.
+
 
 
 
