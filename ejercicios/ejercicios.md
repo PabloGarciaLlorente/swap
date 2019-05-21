@@ -60,5 +60,40 @@ Para empezar, podéis revisar las siguientes webs:
     http://bit.ly/1ye4yHz
     http://bit.ly/1PkZbLJ
     http://bit.ly/2nGm3MR
+    
+### Ejercicio 2 
+
+Revisar los análisis de tráfico que se ofrecen en:
+http://bit.ly/1g0dkKj
+Instalar wireshark y observar cómo fluye el tráfico de red en uno de los servidores web mientras se le hacen peticiones HTTP… o en la red de casa
+
+### Ejercicio 3
+
+Buscar información sobre características, funcionalidad, disponibilidad para diversos SO, etc de herramientas para monitorizar las prestaciones de un servidor.
+
+Para empezar, podemos comenzar utilizando las clásicas de Linux:
+         top
+         vmstat
+         netstat
+
+## Tema 6
+
+### Ejercicio 1
+
+Aplicar con iptables una política de denegar todo el tráfico en una de las máquinas de prácticas. Comprobar el funcionamiento.
+
+Aplicar con iptables una política de permitir todo el tráfico en una de las máquinas de prácticas.
+Comprobar el funcionamiento.
+
+### Ejercicio 2
+
+Comprobar qué puertos tienen abiertos nuestras máquinas, su estado, y qué programa o demonio lo ocupa.
+
+### Ejercicio 3
+
+Buscar información acerca de los tipos de ataques más comunes en servidores web (p.ej. secuestros de sesión).
+Detallar en qué consisten, y cómo se pueden evitar
+
+
 
 
